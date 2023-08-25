@@ -14,6 +14,4 @@ RUN poetry install  && poetry install --only settings,bot,classifier
 COPY services/ /app/services/
 COPY services/telegram_bot/main.py /app/main.py
 
-RUN python setup.py
-
 ENTRYPOINT [ "python", "main.py" ]
