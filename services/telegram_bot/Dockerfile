@@ -11,7 +11,6 @@ RUN pip3 install poetry
 RUN poetry config virtualenvs.create false
 RUN poetry install  && poetry install --only settings,bot,classifier
 
-RUN sudo apt-get install nvidia-cuda-toolkit nvidia-cuda-toolkit-gcc
 
 COPY services/ /app/services/
 COPY services/telegram_bot/main.py /app/main.py
