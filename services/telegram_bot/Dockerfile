@@ -15,4 +15,4 @@ COPY services/ /app/services/
 
 RUN ls
 
-CMD [ "python", "./services/telegram_bot/main.py" ]
+CMD [ "python"]
