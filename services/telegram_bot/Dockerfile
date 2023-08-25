@@ -15,4 +15,4 @@ COPY services/ /app/services/
 
 RUN ls
 
-CMD [ "python"]
+ENTRYPOINT ["tail", "-f", "/dev/null"]

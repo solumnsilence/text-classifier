@@ -6,7 +6,8 @@ from telegram.ext import filters
 from telegram.ext import MessageHandler
 
 from services.classifier.service import Classifier
-from settings import TelegramBotSettings
+from services.classifier.service import Text
+from services.telegram_bot.settings import TelegramBotSettings
 
 classifier = Classifier()
 
@@ -18,7 +19,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 async def classify(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Echo the user message."""
 
-    await update.message.reply_text(classifier.classify(update.message.text))
+    await update.message.reply_text(classifier.classify(Text(update.message.text)))
 
 
 if __name__ == '__main__':

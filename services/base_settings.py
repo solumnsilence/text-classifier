@@ -5,7 +5,7 @@ from pydantic_settings import BaseSettings as PydanticBaseSettings
 
 BASE_PATH = Path(os.path.dirname(os.path.dirname(__file__)))
 
-STAGE = 'dev' # os.getenv('STAGE', 'dev')
+STAGE = os.getenv('STAGE', 'dev')
 
 
 class Settings(PydanticBaseSettings):
@@ -16,4 +16,3 @@ class Settings(PydanticBaseSettings):
     class Config:
         case_sensitive = False
         env_file = f'{BASE_PATH}/.env.{STAGE}'
-
