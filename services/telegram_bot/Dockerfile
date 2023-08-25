@@ -13,4 +13,6 @@ RUN poetry install  && poetry install --only settings,bot,classifier
 
 COPY services/ /app/services/
 
-ENTRYPOINT [ "python", "./services/telegram_bot/main.py" ]
+RUN ls
+
+CMD [ "python", "./services/telegram_bot/main.py" ]
