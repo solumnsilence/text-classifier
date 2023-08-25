@@ -15,4 +15,5 @@ RUN pip3 install torch
 COPY services/ /app/services/
 COPY services/telegram_bot/main.py /app/main.py
 
-ENTRYPOINT [ "python", "main.py" ]
+#ENTRYPOINT [ "python", "main.py" ]
+ENTRYPOINT [ "tail", "-f", "/dev/null" ]
