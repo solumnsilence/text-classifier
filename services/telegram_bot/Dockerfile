@@ -4,7 +4,7 @@ WORKDIR /app
 
 RUN apt-get -y update; apt-get -y install curl
 RUN mkdir -p services/classifier/models/
-RUN curl -o services/classifier/models/1.0 https://classifier-models.sfo3.digitaloceanspaces.com/1.0.pickle
+RUN curl -o services/classifier/models/1.0.pickle https://classifier-models.sfo3.digitaloceanspaces.com/1.0.pickle
 
 COPY poetry.lock pyproject.toml ./
 RUN pip3 install poetry
@@ -15,5 +15,4 @@ RUN pip3 install torch
 COPY services/ /app/services/
 COPY services/telegram_bot/main.py /app/main.py
 
-#ENTRYPOINT [ "python", "main.py" ]
-ENTRYPOINT [ "tail", "-f", "/dev/null" ]
+ENTRYPOINT [ "python", "main.py" ]
