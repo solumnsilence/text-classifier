@@ -10,7 +10,7 @@ COPY poetry.lock pyproject.toml ./
 RUN pip3 install poetry
 RUN poetry config virtualenvs.create false
 RUN poetry install  && poetry install --only settings,bot,classifier
-
+RUN pip3 install torch
 
 COPY services/ /app/services/
 COPY services/telegram_bot/main.py /app/main.py
